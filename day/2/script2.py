@@ -1,7 +1,9 @@
 from script1 import get_input, MethodOfChange
 
 
-def validate_report(report: list[str], starting_value: int, max_bad_values: int = 1) -> bool:
+def validate_report(
+    report: list[str], starting_value: int, max_bad_values: int = 1
+) -> bool:
     last_number = int(report[0])
     if last_number > int(report[starting_value]):
         method_of_change = MethodOfChange.DECREASING
@@ -47,6 +49,7 @@ def calculate_valid_reports(reports_list: list[list[str]]) -> int:
             valid_reports += 1
             continue
     return valid_reports
+
 
 if __name__ == "__main__":
     reports = get_input("input")

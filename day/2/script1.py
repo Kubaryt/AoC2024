@@ -8,7 +8,7 @@ class MethodOfChange(Enum):
 
 
 def get_input(file_name: str) -> list[list[str]]:
-    with open(file_name, 'r') as f:
+    with open(file_name, "r") as f:
         all_lines = []
         for line in f:
             line = line.strip().split(" ")
@@ -19,7 +19,7 @@ def get_input(file_name: str) -> list[list[str]]:
 def validate_reports(reports_list: list[list[str]]) -> int:
     valid_reports = 0
     for report in reports_list:
-        #decreasing or increasing
+        # decreasing or increasing
         method_of_change = MethodOfChange.NONE
         last_number = ""
         report_valid = 1

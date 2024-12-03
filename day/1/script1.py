@@ -1,5 +1,5 @@
 def get_input(file_name: str) -> list[list[int]]:
-    with open(file_name, 'r') as f:
+    with open(file_name, "r") as f:
         row_1 = []
         row_2 = []
         for line in f:
