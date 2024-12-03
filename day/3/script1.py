@@ -5,7 +5,7 @@ def get_input(file_name: str) -> list[list[int]]:
     with open(file_name, "r") as f:
         list_of_muls = []
         for line in f:
-            dziengiel = (re.findall(r"mul\(\d{1,3},\d{1,3}\)", line))
+            dziengiel = re.findall(r"mul\(\d{1,3},\d{1,3}\)", line)
             for mul in dziengiel:
                 mul = mul[4:-1]
                 mul = mul.split(",")
