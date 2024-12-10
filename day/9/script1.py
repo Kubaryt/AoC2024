@@ -26,7 +26,6 @@ def create_map(_blocks: list[str | int]) -> list[int]:
             except ValueError:
                 break
 
-
     return _file_system_map[:-dots_count]
 
 
@@ -41,4 +40,5 @@ def calculate_checksum(_file_system_map: list[int]) -> int:
 if __name__ == "__main__":
     blocks = get_input("input")
     file_system_map = create_map(blocks)
+    print(file_system_map)
     print(calculate_checksum(file_system_map))
