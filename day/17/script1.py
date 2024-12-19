@@ -57,6 +57,8 @@ def execute_program(device_display: dict[str, int | str]) -> str:
                 device_display["B"] = combo_operand % 8
             case 3:
                 if device_display["A"] != 0:
+                    if output[len(output) - 1] != device_display["program"][len(output) - 1]:
+                        break
                     i = literal_operand
                     continue
             case 4:
@@ -73,12 +75,25 @@ def execute_program(device_display: dict[str, int | str]) -> str:
 
 
 
-def test():
-    device_display = get_input("test_input")
+def test1():
+    device_display = get_input("test_input1")
     print(device_display)
     program_output = execute_program(device_display)
     print(program_output)
     assert program_output == "4,6,3,5,6,3,5,2,1,0"
+
+
+def test2():
+    device_display = get_input("test_input2")
+    device_display["A"] = 0
+    i = 1
+    while True:
+        device_display["A"] = i
+        program_output = execute_program(device_display)
+        if program_output == device_display["program"]:
+            break
+        i += 1
+    assert device_display["A"] == 117440
 
 
 def solve():
@@ -88,5 +103,4 @@ def solve():
 
 
 if __name__ == "__main__":
-    test()
-    solve()
+    test2()
