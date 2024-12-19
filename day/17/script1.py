@@ -57,7 +57,10 @@ def execute_program(device_display: dict[str, int | str]) -> str:
                 device_display["B"] = combo_operand % 8
             case 3:
                 if device_display["A"] != 0:
-                    if output[len(output) - 1] != device_display["program"][len(output) - 1]:
+                    try:
+                        if output[len(output) - 1] != device_display["program"][len(output) - 1]:
+                            break
+                    except IndexError:
                         break
                     i = literal_operand
                     continue
